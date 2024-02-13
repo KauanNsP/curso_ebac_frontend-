@@ -1,47 +1,27 @@
-const form = document.getElementById('Formulario');
-const nomes = [];
-const numeros = [];
+$(document).ready(function() {
+    $('header button').click(function () {
+        $('form').slideDown()
+    })
 
-let linhas = '' ;
+    $('#botao-cancelar').click(function() {
+        $('form').slideUp()
+    })
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    adicionaLinha();
-    atualizaTabela();
+    $('form').on('submit', function(e) {
+        e.preventDefault()
+        const enderecoDaNovaImagem = $('#endereco-imagem-nova').val()
+        const novoItem = $('<li style="display: none"></li>')
+        $(`<img src="${enderecoDaNovaImagem}" />`).appendTo(novoItem)
+        $(`
+            <div class="overlay-imagem-link">
+                <a href="${enderecoDaNovaImagem}" target="_blank" title="Ver imagem em tamanho real">
+                    Ver imagem em tamanho real
+                </a>
+            </div>
+        `).appendTo(novoItem)
+        $(novoItem).appendTo('ul')
+        $(novoItem).fadeIn(1000)
+        $('#endereco-imagem-nova').val('')
+    })
 })
-
-function adicionaLinha() {
-    const inputNome = document.getElementById('input-nome');
-    const inputTel = document.getElementById('input-tel');
-
-    if(nomes.includes(inputNome.value)) {
-        alert(`O nome: ${inputNome.value} já foi inserido`);
-    } else {    
-        nomes.push(inputNome.value);
-
-        if(numeros.includes(inputTel.value)){
-            alert(`O telefone: ${inputTel.value} já foi inserido`);
-        } else {
-            numeros.push(inputTel.value);
-
-    let linha = '<tr>';
-    linha += `<td>${inputNome.value}</td>`;
-    linha += `<td>${inputTel.value}</td>`;
-    linha += '</tr>';
-    
-
-    linhas += linha;
-    }}
-
-    inputTel.value = '';
-    inputNome.value = '';
-
-}
-
-function atualizaTabela() {
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linhas;
-
-}
 
