@@ -1,0 +1,53 @@
+//Repartições
+@use 'header.scss';
+@use 'menu.scss';
+@use 'produtos.scss';
+@use 'cores.scss';
+@use 'resetCss.scss';
+
+
+//Cores
+$corPrincipal: #cd84f1;
+$corSecundaria: #18dcff;
+$corDoBotao: #7d5fff;
+$corDeFundo: #4b4b4b;
+
+body {
+    background-color: cores.$corDeFundo;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    padding: 56px 0;
+}
+
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .products {
+        display: block;
+    }
+
+    .product-item  {
+        margin-bottom: 32px;
+    }
+}
+
