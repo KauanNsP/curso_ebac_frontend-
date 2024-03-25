@@ -1,0 +1,85 @@
+//@import "variaveis.less";
+@import "maps.less";
+@breackpointMobile: ~"(max-width: 767px)";
+
+.listStyleNone{
+    list-style: none;
+}
+.borderRadius {
+    border-radius: 30px;
+}
+.textDecoration {
+    text-decoration: none;
+}
+.textAlign {
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto", sans-serif;
+}
+
+body {
+    color: #colors[corDoTexto];
+    background-color: #colors[corDeFundo];
+}
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #colors[corDoheader];
+    padding: 10px 10px;
+
+    img {
+        height: 100%;
+        .borderRadius();
+    }
+
+    .menu {
+        .listStyleNone();
+    }
+
+    a{
+        .textDecoration();
+    }
+}
+
+.container-produtos {
+    h2 {
+        .textAlign();
+        padding: 30px 30px;
+    }
+
+    @media @breackpointMobile {
+        .products {
+            display: block;
+        }
+
+        .product-item {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4,24.25%);
+    grid-column-gap: 1%;
+    grid-row-gap: 5%;
+    .listStyleNone();
+    .textAlign();
+
+    img {
+        .borderRadius();
+    }
+
+    a {
+        .textDecoration();
+    }
+}
+
+
+
