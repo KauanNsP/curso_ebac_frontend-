@@ -1,13 +1,18 @@
 {
-
+  "name": "vue-project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "build": "babel src --watch -d dist"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "browserslist": "> 0.25%",
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.24.5",
-    "@babel/core": "^7.24.5",
-    "@babel/preset-env": "^7.24.5"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.8"
   }
 }
-
